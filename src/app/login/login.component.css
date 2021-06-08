@@ -1,0 +1,28 @@
+.example-card{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding-top: 80px;
+}
+mat-card{
+  padding: 30px 40px;
+}
+mat-icon{
+  margin-bottom: 20px;
+  font-size: 40px;
+  padding: 5px 0px;
+  margin-right: 20px;
+}
+mat-card-title{
+margin-bottom: 20px;
+}
+label{
+  float:left;
+  margin-left: 3px;
+}
+input{
+  margin-bottom: 10px;
+}
+button{
+  margin-bottom: 10px;
+}

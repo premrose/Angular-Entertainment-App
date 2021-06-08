@@ -1,0 +1,15 @@
+<div class="example-card">
+  <mat-card class="card shadow">
+    <form [formGroup]="inputForm" (click)="submit()" novalidate>
+      <mat-icon>perm_identity</mat-icon><br>
+      <mat-card-title novalidate>Log In</mat-card-title>
+      <label>Username</label><br>
+      <input id="username" type="email" class="form-control" formControlName="username" required><br>
+
+      <label>Password</label><br>
+      <input type="password" class="form-control" formControlName="password" required><br>
+      <button class="btn btn-primary" color="primary" routerLink="." type="submit" [disabled]="inputForm.invalid">Log In</button>
+    </form>
+  </mat-card>
+</div>
+<router-outlet></router-outlet>
