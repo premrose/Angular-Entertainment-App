@@ -7,9 +7,68 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VideosComponent implements OnInit {
 
+  public videos = [
+    {
+      title: 'Video 1',
+      desc: 'Video description goes here',
+      id: 'ezbndunlndifonienilanzkdnizn',
+      thumbnailSrc: '../../assets/images/a.jpg',
+      mediaSrc: '../../assets/images/a.jpg'
+    },
+    {
+      title: 'Video 2',
+      desc: 'Video description goes here',
+      id: 'ezbndunlndifonienssazdnzkdnizn',
+      thumbnailSrc: '../../assets/images/a.jpg',
+      mediaSrc: '../../assets/images/a.jpg'
+    },
+    {
+      title: 'Video 3',
+      desc: 'Video description goes here',
+      id: 'ezbndunlndifonienfdsilanzkdnizn',
+      thumbnailSrc: '../../assets/images/a.jpg',
+      mediaSrc: '../../assets/images/a.jpg'
+    },
+    {
+      title: 'Video 4',
+      desc: 'Video description goes here',
+      id: 'ezbndunlndifonienfdssssazdnzkdnizn',
+      thumbnailSrc: '../../assets/images/a.jpg',
+      mediaSrc: '../../assets/images/a.jpg'
+    },
+    {
+      title: 'Video 5',
+      desc: 'Video description goes here',
+      id: 'ezbndunlndifonienilgefdsanzkdnizn',
+      thumbnailSrc: '../../assets/images/a.jpg',
+      mediaSrc: '../../assets/images/a.jpg'
+    },
+    {
+      title: 'Video 6',
+      desc: 'Video description goes here',
+      id: 'ezbndunlndifonienssrefdazdnzkdnizn',
+      thumbnailSrc: '../../assets/images/a.jpg',
+      mediaSrc: '../../assets/images/a.jpg'
+    }
+  ]
+
+  public favourites = ['ezbndunlndifonienilanzkdnizn']
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  isfavourite(videoId: String) {
+    return this.favourites.filter(v => v == videoId).length == 1 ? true : false;
+  }
+
+  removeFavourite(videoId: string) {
+    this.favourites.splice(this.favourites.indexOf(videoId), 1);
+  }
+
+  setFavourite(videoId: string) {
+    this.favourites.push(videoId);
   }
 
 }

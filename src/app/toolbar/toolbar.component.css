@@ -2,3 +2,7 @@
   flex: 1 1 auto;
 }
 
+span{
+  cursor: pointer;
+  padding: 8px;
+}

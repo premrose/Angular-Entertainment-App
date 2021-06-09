@@ -4,10 +4,22 @@
       <mat-icon>home</mat-icon>
     </button>
     <span class="example-spacer"></span>
-    <button mat-raised-button class="btn btn-light" routerLink="login" routerLinkActive="active">Log In</button>
-    <button mat-icon-button class="person_pin" routerLink="signin" routerLinkActive="active" aria-label="Example icon-button with menu icon" aria-hidden="false">
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon>person_pin</mat-icon>
     </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="signin" routerLinkActive="active">
+        <mat-icon>account_circle</mat-icon>
+        <span>Sign Up</span>
+      </button>
+      <button mat-menu-item  routerLink="login" routerLinkActive="active">
+        <mat-icon>login</mat-icon>
+        <span>Login</span>
+      </button>
+      <button mat-menu-item  routerLink="logout" routerLinkActive="active">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
   </mat-toolbar>
 </p>
-<router-outlet></router-outlet>

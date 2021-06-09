@@ -18,6 +18,7 @@ import { SigninComponent } from './signin/signin.component';
 import { LoginComponent } from './login/login.component';
 import { VideosComponent } from './videos/videos.component';
 import { MusicComponent } from './music/music.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { MusicComponent } from './music/music.component';
     SigninComponent,
     LoginComponent,
     VideosComponent,
-    MusicComponent
+    MusicComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

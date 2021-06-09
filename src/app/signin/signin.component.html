@@ -5,11 +5,12 @@
       <mat-card-title (ngSubmit)="onSubmit()" novalidate>REGISTER</mat-card-title>
       <label>Username</label><br>
       <input id="username" type="email" class="form-control" formControlName="username" required><br>
+      <mat-error *ngIf="username.invalid">{{getError()}}</mat-error><br>
       <label>Password</label><br>
       <input type="password" class="form-control" formControlName="password" required><br>
       <label>Confirm Password</label><br>
       <input type="password" class="form-control" formControlName="confirmpassword" required><br>
-      <mat-error *ngIf="inputForm.get('confirmpassword')?.hasError('notSame')">Password Doesn't match</mat-error>
+      <mat-error *ngIf="inputForm.get('confirmpassword')?.hasError('notSame')">Password Doesn't match !</mat-error><br>
       <button mat-raised-button color="primary" routerLink="." type="submit" [disabled]="inputForm.invalid">Register</button>
     </form>
   </mat-card>

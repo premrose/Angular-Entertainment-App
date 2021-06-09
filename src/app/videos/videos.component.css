@@ -1,0 +1,29 @@
+.container{
+  width: 65%;
+}
+h1{
+  text-align: center;
+  margin-bottom: 15px;
+}
+.row{
+  margin-bottom: 15px;
+}
+.card{
+ height: 250px;
+ width: 240px;
+}
+p{
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
+span{
+  cursor: pointer;
+  padding: 8px;
+}
+mat-icon{
+  cursor: pointer;
+}
+.card-img{
+  border-radius: 0%;
+}
+
