@@ -1,14 +1,27 @@
-<div class="example-card">
-  <mat-card class="card shadow">
-    <form [formGroup]="inputForm" (click)="submit()" novalidate>
-      <mat-icon>perm_identity</mat-icon><br>
-      <mat-card-title novalidate>Log In</mat-card-title>
+<div class="card shadow mx-auto ">
+  <form class="form card-body" [formGroup]="inputForm">
+    <mat-icon>perm_identity</mat-icon><br>
+    <h2 class="card-title" (click)="submit()" novalidate>Log In</h2>
+    <div class="form-group">
       <label>Username</label><br>
-      <input id="username" type="email" class="form-control" formControlName="username" required><br>
-
+      <input id="userName" type="email" class="form-control" formControlName="username" required>
+        <mat-error *ngIf="inputForm.controls.username?.invalid && (inputForm.controls.username?.dirty || inputForm.controls.username?.touched)"
+              class="alert">{{getError1()}}</mat-error><br>
+    </div>
+      <div class="form-group">
       <label>Password</label><br>
       <input type="password" class="form-control" formControlName="password" required><br>
-      <button class="btn btn-primary" color="primary" routerLink="." type="submit" [disabled]="inputForm.invalid">Log In</button>
+      <mat-error *ngIf="inputForm.controls.password?.invalid && (inputForm.controls.password?.dirty || inputForm.controls.password?.touched)"
+              class="alert">{{getError2()}}</mat-error>
+      </div>
+      <div class="row">
+        <div class="col-sm-7 forgotpass">
+          <span routerLink="/forgotpass">Forgot Password ?</span>
+        </div>
+        <div class="col-sm-5">
+          <button class="btn btn-primary" color="primary" routerLink="/videos" type="submit" [disabled]="inputForm.invalid">Log In</button>
+        </div>
+      </div>
     </form>
-  </mat-card>
 </div>
+<router-outlet></router-outlet>

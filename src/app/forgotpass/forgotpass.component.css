@@ -19,13 +19,13 @@ label{
   float:left;
   margin-left: 2px;
 }
+button{
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
 input.ng-invalid{
   border: 1px solid red;
 }
 input.ng-valid{
   border: 1px solid green;
-}
-button{
-  margin-top: 5px;
-  margin-bottom: 10px;
 }

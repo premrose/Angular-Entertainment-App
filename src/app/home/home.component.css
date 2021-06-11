@@ -1,0 +1,9 @@
+.container{
+  margin-top: 230px;
+  max-width: 250px;
+}
+
+.col-sm-6{
+  padding: 10px;
+  width: 120px;
+}

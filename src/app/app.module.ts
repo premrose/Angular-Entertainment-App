@@ -11,7 +11,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SigninComponent } from './signin/signin.component';
@@ -19,16 +21,26 @@ import { LoginComponent } from './login/login.component';
 import { VideosComponent } from './videos/videos.component';
 import { MusicComponent } from './music/music.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ForgotpassComponent } from './forgotpass/forgotpass.component';
+import { HomeComponent } from './home/home.component';
+import { AuthenticationService } from '../app/authentication.service';
+import { AuthGuard } from '../app/auth.guard';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     ToolbarComponent,
     SigninComponent,
     LoginComponent,
     VideosComponent,
     MusicComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    LogoutComponent,
+    ForgotpassComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,10 +54,21 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
+    CommonModule,
     ReactiveFormsModule,
-    RouterModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'home', component: HomeComponent},
+      { path: 'signin', component: SigninComponent },
+      { path: 'login', component: LoginComponent },
+      { path: 'videos', component: VideosComponent },
+      { path: 'music', component: MusicComponent },
+      { path: 'logout', component: LogoutComponent },
+      { path: 'forgotpass', component: ForgotpassComponent },
+      { path: '**', component: PagenotfoundComponent },
+    ])
   ],
-  providers: [],
+  providers: [AuthenticationService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

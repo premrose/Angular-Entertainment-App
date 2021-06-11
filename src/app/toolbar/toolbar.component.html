@@ -1,6 +1,6 @@
 <p>
   <mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon" routerLink="/home" aria-label="Example icon-button with menu icon">
       <mat-icon>home</mat-icon>
     </button>
     <span class="example-spacer"></span>
@@ -8,15 +8,16 @@
       <mat-icon>person_pin</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="signin" routerLinkActive="active">
-        <mat-icon>account_circle</mat-icon>
+      <button mat-menu-item routerLink="/signin" routerLinkActive="active">
+        <mat-icon>account_box</mat-icon>
         <span>Sign Up</span>
       </button>
-      <button mat-menu-item  routerLink="login" routerLinkActive="active">
+      <button mat-menu-item  routerLink="/login" routerLinkActive="active">
         <mat-icon>login</mat-icon>
         <span>Login</span>
       </button>
-      <button mat-menu-item  routerLink="logout" routerLinkActive="active">
+      <!-- *ngIf="isLoggedIn$ | async as isLoggedIn"  -->
+      <button mat-menu-item  routerLink="/logout" routerLinkActive="active" ng-click="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
       </button>
