@@ -19,11 +19,7 @@ export class ForgotpassComponent implements OnInit {
   }
     submitted = false;
 
-    submit() {
-      // if(this.submitted = true){
-      //   return 'OTP Sent! Check Your Mail.  ';
-      // }
-      }
+    submit() {}
   constructor() { }
 
   ngOnInit(): void {

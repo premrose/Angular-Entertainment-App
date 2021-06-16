@@ -1,5 +1,9 @@
 import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
+import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -7,6 +11,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
+  constructor(private authenticationservice : AuthenticationService, private http: HttpClient) {}
 
   userName = new FormControl('',[Validators.required, Validators.email]);
   passWord = new FormControl('',Validators.required);
@@ -23,13 +28,26 @@ export class LoginComponent{
 
       return this.userName.hasError('email') ? 'Not a valid email' : '';
     }
-    getError2() {
-      if (this.passWord.hasError('required')) {
-        return 'Enter a valid Password.';
-      }
 
-      return this.passWord.hasError('password') ? 'Incorrect Password.' : '';
-    }
     submit(){
+      if(this.inputForm.valid){
+        this.authenticationservice.loginUser(this.userName.value,this.passWord.value).subscribe(
+          response => {
+            // check if the response has token
+            // check if the response is 200
+            // if token is present add to local storage
+            // redirect to page
+          if (200) {
+            console.log('success');
+            }
+          },
+          error=> {
+            // display what error
+          }
+        )
+      }else{
+        //show err msg
+        console.log('Something bad happened; please try again later.');
+      }
     }
 }

@@ -3,6 +3,7 @@ export class User {
     public username: string,
     public password: string,
     public confirmpassword: string,
+    public jwtToken?: string,
   ){
 
   }

@@ -12,8 +12,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SigninComponent } from './signin/signin.component';
@@ -26,6 +27,7 @@ import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from '../app/authentication.service';
 import { AuthGuard } from '../app/auth.guard';
+import { FavouritesComponent } from './favourites/favourites.component';
 
 
 
@@ -41,6 +43,7 @@ import { AuthGuard } from '../app/auth.guard';
     PagenotfoundComponent,
     LogoutComponent,
     ForgotpassComponent,
+    FavouritesComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,17 +59,21 @@ import { AuthGuard } from '../app/auth.guard';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
     HttpClientModule,
     RouterModule.forRoot([
+      { path: '', component: HomeComponent},
       { path: 'home', component: HomeComponent},
       { path: 'signin', component: SigninComponent },
       { path: 'login', component: LoginComponent },
       { path: 'videos', component: VideosComponent },
       { path: 'music', component: MusicComponent },
+      { path: 'favourites', component: FavouritesComponent },
       { path: 'logout', component: LogoutComponent },
       { path: 'forgotpass', component: ForgotpassComponent },
-      { path: '**', component: PagenotfoundComponent },
-    ])
+      { path: '404', component: PagenotfoundComponent },
+      { path: '**', redirectTo: '/404' }
+    ]),
   ],
   providers: [AuthenticationService,AuthGuard],
   bootstrap: [AppComponent]

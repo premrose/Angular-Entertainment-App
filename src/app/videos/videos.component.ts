@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.component.html',
   styleUrls: ['./videos.component.css']
 })
-export class VideosComponent implements OnInit {
+export class VideosComponent {
 
   public videos = [
     {
@@ -13,7 +15,8 @@ export class VideosComponent implements OnInit {
       desc: 'Video description goes here',
       id: 'ezbndunlndifonienilanzkdnizn',
       thumbnailSrc: '../../assets/images/a.jpg',
-      mediaSrc: '../../assets/images/a.jpg'
+      mediaSrc: '../../assets/images/a.jpg',
+      message:""
     },
     {
       title: 'Video 2',
@@ -52,12 +55,7 @@ export class VideosComponent implements OnInit {
     }
   ]
 
-  public favourites = ['ezbndunlndifonienilanzkdnizn']
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  public favourites = ['']
 
   isfavourite(videoId: String) {
     return this.favourites.filter(v => v == videoId).length == 1 ? true : false;
@@ -71,4 +69,17 @@ export class VideosComponent implements OnInit {
     this.favourites.push(videoId);
   }
 
+  // @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  // constructor() { this.paginator = new MatTableDataSource();
+  // }
+
+  // ngAfterViewInit() {
+  //   this.paginator = this.paginator;
+  // }
+  // applyFilter(event: Event) {
+  //   if (this.paginator) {
+  //     this.paginator.firstPage();
+  //   }
+  // }
 }

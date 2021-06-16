@@ -1,5 +1,6 @@
 import { Component} from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { AuthenticationService } from '../authentication.service';
 import { User } from '../user';
 
 @Component({
@@ -8,6 +9,8 @@ import { User } from '../user';
   styleUrls: ['./signin.component.css']
 })
 export class SigninComponent{
+  constructor(private authenticationservice : AuthenticationService) {}
+
   userData = new User('','','');
 
   userName = new FormControl('',[Validators.required, Validators.email]);
@@ -38,25 +41,4 @@ export class SigninComponent{
   ngOnInit() {
 
   }
-  // loginUser () {
-  //   this.authenticationservice.loginUser(this.loginUserData)
-  //   .subscribe(
-  //     res => {
-  //       localStorage.setItem('token', res.token)
-  //       this.router.navigate(['/videos'])
-  //     },
-  //     err => console.log(err)
-  //   )
-  // }
-
-//   onSubmit(username:string,password:string,confirmpassword:string){
-//     this.inputForm.(username,password,confirmpassword).subscribe((data : any)=>{
-//      localStorage.setItem('userToken',data.access_token);
-//      this.router.navigate(['/']);
-//    },
-//    (err : HttpErrorResponse)=>{
-//      this.isLoginError = true;
-//    });
-//  }
-
 }

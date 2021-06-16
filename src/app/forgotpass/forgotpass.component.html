@@ -3,10 +3,10 @@
       <mat-icon>perm_identity</mat-icon><br>
       <mat-card-title novalidate>Forgot Password</mat-card-title>
       <label>Email</label><br>
-      <input id="username" type="email" class="form-control" formControlName="username" required><br>
+      <input id="username" type="email" class="form-control" [formControl]="username" required><br>
       <mat-error *ngIf="username?.invalid && (username?.dirty || username?.touched)"
               class="alert">{{getError()}}</mat-error>
-      <button class="btn btn-primary" color="primary" type="submit">Send Link</button>
+      <button class="btn btn-primary" color="primary" routerLink="/videos" type="submit" [disabled]="username.invalid">Send Link</button>
     </form>
   </mat-card>
 

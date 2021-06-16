@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  isLoggedIn$: Observable<boolean>;
 
-  ngOnInit(): void {
+  constructor(private authenticationservice: AuthenticationService, private router : Router) { }
+
+  ngOnInit() {
+    this.isLoggedIn$ = this.authenticationservice.loggedIn;
   }
 
+  onLogout(){
+    this.authenticationservice.logout();
+  }
 }
+

@@ -11,8 +11,6 @@
       <div class="form-group">
       <label>Password</label><br>
       <input type="password" class="form-control" formControlName="password" required><br>
-      <mat-error *ngIf="inputForm.controls.password?.invalid && (inputForm.controls.password?.dirty || inputForm.controls.password?.touched)"
-              class="alert">{{getError2()}}</mat-error>
       </div>
       <div class="row">
         <div class="col-sm-7 forgotpass">
