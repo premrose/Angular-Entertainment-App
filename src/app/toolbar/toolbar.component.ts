@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
@@ -10,15 +10,15 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class ToolbarComponent implements OnInit {
 
-  isLoggedIn$: Observable<boolean>;
+  constructor(private authenticationservice: AuthenticationService){ }
 
-  constructor(private authenticationservice: AuthenticationService, private router : Router) { }
+  isLoggedIn: Observable<boolean>;
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authenticationservice.loggedIn;
+    // this.isLoggedIn = this.authenticationservice.loggedIn;
   }
 
-  onLogout(){
+  onLogout() {
     this.authenticationservice.logout();
   }
 }

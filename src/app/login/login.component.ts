@@ -37,7 +37,7 @@ export class LoginComponent{
             // check if the response is 200
             // if token is present add to local storage
             // redirect to page
-          if (200) {
+          if (response == 200) {
             console.log('success');
             }
           },

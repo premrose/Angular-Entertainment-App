@@ -1,11 +1,12 @@
 <div class="container">
-  <h1>Trending Musics</h1>
+  <h1> Trending Musics</h1>
   <div class="row">
-    <div class="col" *ngFor="let item of music"  id="mImageBox">
-      <div class="card shadow" id='my_image'>
+    <div class="col" *ngFor="let item of music" loading="lazy">
+      <div class="card shadow" loading="lazy">
           <p class="title">{{ item.title }}</p>
           <p class="date">Date</p>
-          <img class="card-img" id="MyImg" src="{{ item.thumbnailSrc }}" alt="thumbnail">
+          <audio class="card-img" controls src="{{ item.mediaSrc }}" type="audio/webm" loading="lazy">
+          </audio>
           <p>
             <mat-icon  class="like" (click)="removeFavourite(item.id)" *ngIf="isfavourite(item.id)">favorite</mat-icon>
             <mat-icon (click)="setFavourite(item.id)" *ngIf="!isfavourite(item.id)">favorite_border</mat-icon>

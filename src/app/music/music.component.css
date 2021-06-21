@@ -1,5 +1,5 @@
 .container{
-  width: 55%;
+  width: 58%;
 }
 h1{
   text-align: center;
@@ -23,6 +23,8 @@ mat-icon{
 }
 .card-img{
   border-radius: 0%;
+  width: 218px;
+  height: 140px;
 }
 .like{
   color: red;

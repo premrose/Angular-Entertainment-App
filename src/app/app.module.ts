@@ -14,7 +14,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SigninComponent } from './signin/signin.component';
@@ -59,7 +58,6 @@ import { FavouritesComponent } from './favourites/favourites.component';
     FormsModule,
     CommonModule,
     ReactiveFormsModule,
-    MatPaginatorModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
