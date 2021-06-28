@@ -25,12 +25,12 @@ export class AuthenticationService {
   public get userValue(): User {
     return this.userSubject.value;
 }
-  registerUser(username:string,password:string) {
-    return this.http.post(this._registerUrl, {'username': username,'password': password, 'confirmpassword': password})
+  registerUser(username:string,password:string,password_confirm:string) {
+    return this.http.post<any>('/api/v1/accounts/register', {username, password, password_confirm}, { withCredentials: true })
   }
 
   loginUser(username:string,password:string) {
-    return this.http.post<any>(`${environment.apiUrl}/users/authenticate`, { username, password }, { withCredentials: true })
+    return this.http.post<any>('/api/v1/accounts/login', { username, password }, { withCredentials: true })
     .pipe(map(user => {
         this.userSubject.next(user);
         // this.startRefreshTokenTimer();
@@ -40,7 +40,7 @@ export class AuthenticationService {
   }
 
   logout() {
-    this.http.post<any>(`${environment.apiUrl}/users/revoke-token`, {}, { withCredentials: true }).subscribe();
+    this.http.post<any>('/api/v1/accounts/logout', {}, { withCredentials: true }).subscribe();
     // this.stopRefreshTokenTimer();
     this.router.navigate(['/login']);
   }

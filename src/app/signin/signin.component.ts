@@ -14,14 +14,16 @@ export class SigninComponent{
   userData = new User('','','');
 
   userName = new FormControl('',[Validators.required, Validators.email]);
+  passWord = new FormControl('',[Validators.required, Validators.minLength(6)]);
+  passwordConfirm = new FormControl('',[Validators.required, Validators.minLength(6)]);
 
   inputForm = new FormGroup({
     username : this.userName,
-    password : new FormControl('',[Validators.required, Validators.minLength(6)]),
-    confirmpassword : new FormControl('',[Validators.required, Validators.minLength(6)])},
+    password : this.passWord,
+    password_confirm : new FormControl('',[Validators.required, Validators.minLength(6)])},
     {validators: (control) => {
-      if (control.value.confirmpassword !== control.value.password) {
-        control.get("confirmpassword")?.setErrors({ notSame: true });
+      if (control.value.password_confirm !== control.value.password) {
+        control.get("password_confirm")?.setErrors({ notSame: true });
       }
       return null;
     },
@@ -31,14 +33,16 @@ export class SigninComponent{
     if (this.userName.hasError('required')) {
       return 'Enter a valid Mail Id';
     }
-
+    else
     return this.userName.hasError('email') ? 'Not a valid email' : '';
   }
   onSubmit() {
 
-    console.warn(this.inputForm.value);
+    if(this.inputForm.valid){
+      this.authenticationservice.registerUser(this.userName.value,this.passWord.value,this.passwordConfirm.value).subscribe()
   }
-  ngOnInit() {
-
+  if (this.inputForm.invalid) {
+    return;
   }
+}
 }

@@ -1,5 +1,24 @@
-.container{
-  width: 58%;
+@media screen and (min-width:600px){
+  .container{
+  width: 75%;
+  margin: 180px;
+  margin-top: 10px;
+}
+h1{
+  margin-left: -40px;
+}
+.card{
+  transition:all 0.2s;
+}
+.card:hover{
+  margin-top: -3px;
+  transition:all 0.15s;
+}
+}
+@media screen and (max-width:400px){
+  .row{
+    margin-left: 20px;
+  }
 }
 h1{
   text-align: center;
@@ -7,8 +26,8 @@ h1{
   margin-top: 20px;
 }
 .card{
- height: 230px;
- width: 220px;
+ height: 240px;
+ width: 270px;
 }
 p{
   margin-bottom: 5px;
@@ -23,8 +42,9 @@ mat-icon{
 }
 .card-img{
   border-radius: 0%;
-  width: 218px;
+  width: 269px;
   height: 140px;
+  object-fit:cover;
 }
 .like{
   color: red;
@@ -32,6 +52,11 @@ mat-icon{
 .row{
   margin-bottom: 10px;
 }
-.col{
+.col-sm-4{
   padding: 10px;
 }
+.title{
+  font-size: 15px;
+  margin-top: 5px;
+}
+.date{font-size: 10px;}

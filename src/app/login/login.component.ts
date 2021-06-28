@@ -11,7 +11,8 @@ import { catchError, retry } from 'rxjs/operators';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent{
-  constructor(private authenticationservice : AuthenticationService, private http: HttpClient) {}
+  constructor(private authenticationservice : AuthenticationService, private http: HttpClient,
+              private error: HttpErrorResponse  ) {}
 
   userName = new FormControl('',[Validators.required, Validators.email]);
   passWord = new FormControl('',Validators.required);
@@ -37,8 +38,12 @@ export class LoginComponent{
             // check if the response is 200
             // if token is present add to local storage
             // redirect to page
-          if (response == 200) {
+          if (response.status == 200) {
             console.log('success');
+            }
+            else {
+              console.error(
+                `Error code ${this.error.status}, `)
             }
           },
           error=> {

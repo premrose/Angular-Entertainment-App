@@ -10,6 +10,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { FavouritesComponent } from './favourites/favourites.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -17,11 +18,11 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgotpass', component: ForgotpassComponent },
-  { path: 'videos', component: VideosComponent },
-  { path: 'music', component: MusicComponent },
-  { path: 'favourites', component: FavouritesComponent },
+  { path: 'videos', component: VideosComponent}, //,canActivate:[AuthGuard]
+  { path: 'music', component: MusicComponent },//,canActivate:[AuthGuard]
+  { path: 'favourites', component: FavouritesComponent },//,canActivate:[AuthGuard]
   { path: 'logout', component: LogoutComponent },
-  {path: '404', component: PagenotfoundComponent},
+  {path: '404', component: PagenotfoundComponent},//,canActivate:[AuthGuard]
  {path: '**', redirectTo: '/404'}
 
 ];

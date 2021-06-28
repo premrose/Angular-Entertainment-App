@@ -1,9 +1,13 @@
 .container{
   margin-top: 230px;
-  max-width: 250px;
+  max-width: 300px;
 }
-
 .col-sm-6{
-  padding: 13px;
-  width: 120px;
+  padding: 10px;
+}
+.row h2{
+  padding-left: 10px;
+}
+.btn{
+  width: 100px;
 }

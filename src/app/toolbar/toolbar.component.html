@@ -1,19 +1,10 @@
-<p>
+
   <mat-toolbar color="primary">
+    <div class="container">
     <button mat-icon-button class="example-icon" routerLink="/home">
-      <mat-icon>home</mat-icon>
+      EA
     </button>
-    <span class="example-spacer"></span>
-    <button mat-icon-button routerLink="/videos" title="videos" routerLinkActive="active">
-      <mat-icon>video_library</mat-icon>
-    </button>
-    <button mat-icon-button routerLink="/music" title="musics" routerLinkActive="active">
-      <mat-icon>library_music</mat-icon>
-    </button>
-    <button mat-icon-button routerLink="/favourites" title="favourites" routerLinkActive="active">
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <button mat-icon-button class="float-end" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
       <mat-icon>person_pin</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
@@ -31,7 +22,16 @@
         <span>Logout</span>
       </button>
     </mat-menu>
+    <button mat-icon-button class="float-end" routerLink="/favourites" title="favourites" routerLinkActive="active">
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button mat-icon-button class="float-end" routerLink="/music" title="musics" routerLinkActive="active">
+      <mat-icon>library_music</mat-icon>
+    </button>
+    <button mat-icon-button class="float-end" routerLink="/videos" title="videos" routerLinkActive="active">
+      <mat-icon>video_library</mat-icon>
+    </button>
+  </div>
   </mat-toolbar>
-</p>
 <router-outlet></router-outlet>
 

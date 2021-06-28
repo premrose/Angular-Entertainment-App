@@ -7,10 +7,9 @@ import { MusicComponent } from '../music/music.component';
   templateUrl: './favourites.component.html',
   styleUrls: ['./favourites.component.css']
 })
-export class FavouritesComponent extends VideosComponent {
+export class FavouritesComponent{
 
   constructor() {
-    super()
   }
 
   public favourites = [""]

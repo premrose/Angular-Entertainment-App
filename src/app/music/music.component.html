@@ -1,14 +1,15 @@
 <div class="container">
-  <h1> Trending Musics</h1>
+  <h1>Trending Musics</h1>
   <div class="row">
-    <div class="col" *ngFor="let item of music" loading="lazy">
-      <div class="card shadow" loading="lazy">
+    <div class="col-sm-4" *ngFor="let item of music" loading="lazy">
+      <div class="card shadow" loading="lazy" title="{{ item.title }}">
           <p class="title">{{ item.title }}</p>
-          <p class="date">Date</p>
-          <audio class="card-img" controls src="{{ item.mediaSrc }}" type="audio/webm" loading="lazy">
-          </audio>
+          <p class="date">{{ item.Date }}</p>
+          <video class="card-img" controls poster="{{ item.thumbnailSrc }}"
+            src="{{ item.mediaSrc }}" type="audio/webm" loading="lazy" autopictureinpicture="true" preload="none">
+          </video>
           <p>
-            <mat-icon  class="like" (click)="removeFavourite(item.id)" *ngIf="isfavourite(item.id)">favorite</mat-icon>
+            <mat-icon class="like" (click)="removeFavourite(item.id)" *ngIf="isfavourite(item.id)">favorite</mat-icon>
             <mat-icon (click)="setFavourite(item.id)" *ngIf="!isfavourite(item.id)">favorite_border</mat-icon>
             <a href="https://www.facebook.com/sharer/sharer.php?href='{{item.title}},{{item.thumbnailSrc}}'" target="_blank">
               <span class="material-icons">share</span>

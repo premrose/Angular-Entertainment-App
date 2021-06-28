@@ -4,15 +4,10 @@
     <div class="col" *ngFor="let item of videos" loading="lazy">
       <div class="card shadow" loading="lazy">
           <p class="title">{{ item.title }}</p>
-          <p class="date">Date</p>
+          <p class="date">{{ item.Date }}</p>
           <video class="card-img" controls poster="{{ item.thumbnailSrc }}"
-            src="{{ item.mediaSrc }}" type="video/mp4" loading="lazy" autopictureinpicture="true" width="620">
+            src="{{ item.mediaSrc }}" type="video/mp4" loading="lazy" autopictureinpicture="true" preload="none">
           </video>
-          <!-- <div class="dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-            Description</div>
-          <div class="dropdown-menu" aria-labelledby="defaultDropdown">
-             <p class="dropdown-item">Description goes here.</p>
-          </div> -->
           <p>
             <mat-icon class="like" (click)="removeFavourite(item.id)" *ngIf="isfavourite(item.id)">favorite</mat-icon>
             <mat-icon (click)="setFavourite(item.id)" *ngIf="!isfavourite(item.id)">favorite_border</mat-icon>
@@ -27,4 +22,3 @@
 
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ta_IN/sdk.js#xfbml=1&version=v11.0" nonce="HqCjvkL2"></script>
-

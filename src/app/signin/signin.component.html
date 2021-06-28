@@ -7,7 +7,8 @@
         <label>Username</label><br>
         <input id="userName" type="email" class="form-control" formControlName="username" required/>
         <mat-error *ngIf="inputForm.controls.username?.invalid && (inputForm.controls.username?.dirty || inputForm.controls.username?.touched)"
-              class="alert">{{getError()}}</mat-error><br>
+              class="alert">{{getError()}}</mat-error>
+              <br>
       </div>
       <div class="form-group">
         <label>Password</label><br>
@@ -15,9 +16,9 @@
       </div>
       <div class="form-group">
         <label>Confirm Password</label><br>
-       <input type="password" class="form-control" name="confirmpassword" [(ngModel)]="userData.confirmpassword"  formControlName="confirmpassword" required><br>
+       <input type="password" class="form-control" name="password_confirm" [(ngModel)]="userData.password_confirm"  formControlName="password_confirm" required><br>
       </div>
-       <div *ngIf="inputForm.get('confirmpassword')?.hasError('notSame')">Password Doesn't match !</div><br>
+       <div *ngIf="inputForm.get('password_confirm')?.hasError('notSame')">Password Doesn't match !</div><br>
 
       <button mat-raised-button color="primary" routerLink="/videos" type="submit" [disabled]="inputForm.invalid">Register</button>
     </form>
