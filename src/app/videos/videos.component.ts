@@ -28,10 +28,9 @@ export class VideosComponent implements OnInit {
   }
 
   public favourites = ['']
-
+  // this.http.get<User>("http://127.0.0.1:8000/media/favourite/",{})
 
   isfavourite(like_by_user: string) {
-    this.http.get<User>("http://127.0.0.1:8000/media/favourite/",{})
     return this.favourites.filter(v => v == like_by_user).length == 1 ? true : false;
   }
 
