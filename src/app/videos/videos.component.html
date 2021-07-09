@@ -1,24 +1,28 @@
-<div class="container">
+<div class="container mx-auto">
   <h1> Trending Videos </h1>
   <div class="row">
     <div class="col" *ngFor="let item of videos" loading="lazy">
-      <div class="card shadow" loading="lazy">
-          <p class="title">{{ item.title }}</p>
-          <p class="date">{{ item.Date }}</p>
-          <video class="card-img" controls poster="{{ item.thumbnailSrc }}"
-            src="{{ item.mediaSrc }}" type="video/mp4" loading="lazy" autopictureinpicture="true" preload="none">
+      <div class="card shadow" loading="lazy" title="{{ item.Title }}">
+          <p class="title"> {{ item.Title }}</p>
+          <p class="date"> {{ item.created_on }}</p>
+          <video class="card-img" controls poster="{{ item.Thumbnail }}"
+            src="{{ item.Media_link }}" type="video/mp4" loading="lazy" autopictureinpicture="true" preload="none">
+            <track kind="descriptions" src="{{ item.Description }}" lang="en">
           </video>
-          <p>
-            <mat-icon class="like" (click)="removeFavourite(item.id)" *ngIf="isfavourite(item.id)">favorite</mat-icon>
-            <mat-icon (click)="setFavourite(item.id)" *ngIf="!isfavourite(item.id)">favorite_border</mat-icon>
-            <a href="https://www.facebook.com/sharer/sharer.php?href='{{item.title}},{{item.thumbnailSrc}}'" target="_blank">
-              <span class="material-icons">share</span>
-            </a>
-          </p>
+          <div class="d-flex flex-row">
+            <div class="p-2">
+              <mat-icon class="like" (click)="removeFavourite(item.Media_id)" *ngIf="isfavourite(item.Media_id)">favorite</mat-icon>
+              <mat-icon (click)="setFavourite(item.Media_id)" *ngIf="!isfavourite(item.Media_id)">favorite_border</mat-icon>
+              <p class="mx-auto">{{ item.popularity}} likes</p>
+            </div>
+            <div class="p-2">
+              <a href="https://www.facebook.com/sharer/sharer.php?href='{{item.Title}},{{item.Thumbnail}}'" target="_blank">
+                <span class="material-icons">share</span>
+                <p class="mx-auto">share</p>
+              </a>
+            </div>
+          </div>
       </div>
     </div>
   </div>
 </div>
-
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ta_IN/sdk.js#xfbml=1&version=v11.0" nonce="HqCjvkL2"></script>

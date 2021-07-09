@@ -8,27 +8,26 @@
       <mat-icon>person_pin</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item routerLink="/signin" routerLinkActive="active">
+      <button mat-menu-item *ngIf="isLoggedOut$ | async as isLoggedOut" routerLink="/signin" routerLinkActive="active">
         <mat-icon>account_box</mat-icon>
         <span>Sign Up</span>
       </button>
-      <button mat-menu-item  routerLink="/login" routerLinkActive="active">
+      <button mat-menu-item  *ngIf="isLoggedOut$ | async as isLoggedOut" routerLink="/login" routerLinkActive="active">
         <mat-icon>login</mat-icon>
         <span>Login</span>
       </button>
-      <!-- *ngIf="isLoggedIn$ | async as isLoggedIn"  -->
-      <button mat-menu-item  routerLink="/login" (click)="onLogout()" *ngIf="isLoggedIn | async as isLoggedIn" routerLinkActive="active" ng-click="logout()">
+      <button mat-menu-item (click)="onLogout()" *ngIf="isLoggedIn$ | async as isLoggedIn" routerLinkActive="active" ng-click="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
       </button>
     </mat-menu>
-    <button mat-icon-button class="float-end" routerLink="/favourites" title="favourites" routerLinkActive="active">
+    <button mat-icon-button class="float-end" *ngIf="isLoggedIn$ | async as isLoggedIn" routerLink="/favourites" title="favourites" routerLinkActive="active">
       <mat-icon>favorite</mat-icon>
     </button>
-    <button mat-icon-button class="float-end" routerLink="/music" title="musics" routerLinkActive="active">
+    <button mat-icon-button class="float-end" *ngIf="isLoggedIn$ | async as isLoggedIn" routerLink="/music" title="musics" routerLinkActive="active">
       <mat-icon>library_music</mat-icon>
     </button>
-    <button mat-icon-button class="float-end" routerLink="/videos" title="videos" routerLinkActive="active">
+    <button mat-icon-button class="float-end" *ngIf="isLoggedIn$ | async as isLoggedIn" routerLink="/videos" title="videos" routerLinkActive="active">
       <mat-icon>video_library</mat-icon>
     </button>
   </div>

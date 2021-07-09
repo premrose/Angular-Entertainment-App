@@ -12,10 +12,12 @@ export class ToolbarComponent implements OnInit {
 
   constructor(private authenticationservice: AuthenticationService){ }
 
-  isLoggedIn: Observable<boolean>;
+  isLoggedIn$ : Observable<boolean>;
+  isLoggedOut$ : Observable<boolean>;
 
   ngOnInit() {
-    // this.isLoggedIn = this.authenticationservice.loggedIn;
+    this.isLoggedIn$ = this.authenticationservice.isUserLoggedIn;
+    this.isLoggedOut$ = this.authenticationservice.isUserLoggedOut;
   }
 
   onLogout() {

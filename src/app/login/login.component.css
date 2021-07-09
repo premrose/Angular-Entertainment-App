@@ -24,9 +24,11 @@ input.ng-invalid{
 }
 input.ng-touched{
   border: 1px solid red;
+  background-color: #b9686823;
 }
 input.ng-valid{
   border: 1px solid green;
+  background-color: #ffffff00;
 }
 input.ng-untouched{
   border: 1px solid rgb(187, 187, 187);
@@ -39,4 +41,5 @@ button{
 .forgotpass{
   margin-top: 15px;
   text-align: left;
+  cursor: pointer;
 }

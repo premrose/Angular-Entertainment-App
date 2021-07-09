@@ -18,11 +18,11 @@ const routes: Routes = [
   { path: 'signin', component: SigninComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgotpass', component: ForgotpassComponent },
-  { path: 'videos', component: VideosComponent}, //,canActivate:[AuthGuard]
-  { path: 'music', component: MusicComponent },//,canActivate:[AuthGuard]
-  { path: 'favourites', component: FavouritesComponent },//,canActivate:[AuthGuard]
+  { path: 'videos', component: VideosComponent, canActivate:[AuthGuard]},
+  { path: 'music', component: MusicComponent, canActivate:[AuthGuard]},
+  { path: 'favourites', component: FavouritesComponent, canActivate:[AuthGuard]},
   { path: 'logout', component: LogoutComponent },
-  {path: '404', component: PagenotfoundComponent},//,canActivate:[AuthGuard]
+  {path: '404', component: PagenotfoundComponent},
  {path: '**', redirectTo: '/404'}
 
 ];

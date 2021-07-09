@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-forgotpass',
@@ -7,6 +9,8 @@ import { FormControl, Validators} from '@angular/forms';
   styleUrls: ['./forgotpass.component.css']
 })
 export class ForgotpassComponent implements OnInit {
+
+  constructor(private authenticationservice:AuthenticationService,private router: Router) { }
 
   username = new FormControl('',[Validators.required, Validators.email]);
 
@@ -19,8 +23,9 @@ export class ForgotpassComponent implements OnInit {
   }
     submitted = false;
 
-    submit() {}
-  constructor() { }
+    submit(){
+      console.log('Email Sent..!');
+    }
 
   ngOnInit(): void {
   }

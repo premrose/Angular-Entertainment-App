@@ -13,7 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, CanActivate } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { SigninComponent } from './signin/signin.component';
@@ -27,8 +27,7 @@ import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from '../app/authentication.service';
 import { AuthGuard } from '../app/auth.guard';
 import { FavouritesComponent } from './favourites/favourites.component';
-
-
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
     PagenotfoundComponent,
     LogoutComponent,
     ForgotpassComponent,
-    FavouritesComponent,
+    FavouritesComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +58,10 @@ import { FavouritesComponent } from './favourites/favourites.component';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'My-Xsrf-Cookie',
+      headerName: 'My-Xsrf-Header',
+    }),
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'home', component: HomeComponent},
@@ -73,7 +76,7 @@ import { FavouritesComponent } from './favourites/favourites.component';
       { path: '**', redirectTo: '/404' }
     ]),
   ],
-  providers: [AuthenticationService,AuthGuard],
+  providers: [AuthenticationService,AuthGuard,{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
