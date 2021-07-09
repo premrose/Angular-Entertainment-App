@@ -2,12 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { VideosComponent } from './videos/videos.component';
 import { MusicComponent } from './music/music.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { LogoutComponent } from './logout/logout.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { FavouritesComponent } from './favourites/favourites.component';
 import { AuthGuard } from './auth.guard';
@@ -15,13 +14,12 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent},
-  { path: 'signin', component: SigninComponent },
+  { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
   { path: 'forgotpass', component: ForgotpassComponent },
   { path: 'videos', component: VideosComponent, canActivate:[AuthGuard]},
   { path: 'music', component: MusicComponent, canActivate:[AuthGuard]},
   { path: 'favourites', component: FavouritesComponent, canActivate:[AuthGuard]},
-  { path: 'logout', component: LogoutComponent },
   {path: '404', component: PagenotfoundComponent},
  {path: '**', redirectTo: '/404'}
 

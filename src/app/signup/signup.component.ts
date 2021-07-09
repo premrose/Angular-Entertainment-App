@@ -6,10 +6,10 @@ import { AuthenticationService } from '../authentication.service';
 
 @Component({
   selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.css']
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class SigninComponent{
+export class SignupComponent{
   constructor(private authenticationservice : AuthenticationService,private router: Router) {}
 
   username = new FormControl('',[Validators.required]);

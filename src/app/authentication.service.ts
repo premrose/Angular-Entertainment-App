@@ -100,7 +100,7 @@ public registerUser(username:string,password:string,password_confirm:string): Ob
     this.loggedIn.asObservable();
       if(localStorage.getItem('access') != null)
         this.loggedIn.next(true);
-        this.loggedOut.next(false);
+       this.loggedOut.next(false);
       if (localStorage.getItem('access')) {
         return true;
       }

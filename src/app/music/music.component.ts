@@ -32,7 +32,7 @@ export class MusicComponent implements OnInit {
     public favourites = ['']
 
 
-    isfavourite(like_by_user: String) {
+    isfavourite(like_by_user: string) {
       this.http.get<User>("http://127.0.0.1:8000/media/favourite/",{})
       return this.favourites.filter(v => v == like_by_user).length == 1 ? true : false;
     }

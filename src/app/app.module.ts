@@ -6,22 +6,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes, CanActivate } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { HttpClientModule, HttpClientXsrfModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
-import { SigninComponent } from './signin/signin.component';
+import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { VideosComponent } from './videos/videos.component';
 import { MusicComponent } from './music/music.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { LogoutComponent } from './logout/logout.component';
 import { ForgotpassComponent } from './forgotpass/forgotpass.component';
 import { HomeComponent } from './home/home.component';
 import { AuthenticationService } from '../app/authentication.service';
@@ -34,12 +33,11 @@ import { AuthInterceptor } from './auth.interceptor';
     AppComponent,
     HomeComponent,
     ToolbarComponent,
-    SigninComponent,
+    SignupComponent,
     LoginComponent,
     VideosComponent,
     MusicComponent,
     PagenotfoundComponent,
-    LogoutComponent,
     ForgotpassComponent,
     FavouritesComponent
   ],
@@ -49,9 +47,9 @@ import { AuthInterceptor } from './auth.interceptor';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
+    MatCardModule,
     MatMenuModule,
     MatButtonModule,
-    MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
     FormsModule,
@@ -65,12 +63,11 @@ import { AuthInterceptor } from './auth.interceptor';
     RouterModule.forRoot([
       { path: '', component: HomeComponent},
       { path: 'home', component: HomeComponent},
-      { path: 'signin', component: SigninComponent },
+      { path: 'signup', component: SignupComponent },
       { path: 'login', component: LoginComponent },
       { path: 'videos', component: VideosComponent },
       { path: 'music', component: MusicComponent },
       { path: 'favourites', component: FavouritesComponent },
-      { path: 'logout', component: LogoutComponent },
       { path: 'forgotpass', component: ForgotpassComponent },
       { path: '404', component: PagenotfoundComponent },
       { path: '**', redirectTo: '/404' }
